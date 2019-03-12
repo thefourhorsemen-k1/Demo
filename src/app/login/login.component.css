@@ -1,0 +1,56 @@
+.login-box{
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    min-height: 200px;
+    background: white;
+    border-radius: 10px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+.login-box h1{
+    margin: 0;
+    padding: 0 0 20px;
+    color: #262626;
+    text-align: center;
+}
+.login-box input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.login-box input[type="text"],
+.login-box input[type="password"]
+{
+    border: none;
+    border-bottom: 2px solid #262626;
+    height: 40px;
+    color: #262626;
+    background: transparent;
+    font-size: 16px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    outline: none;
+}
+.login-box input[type="text"]:focus,
+.login-box input[type="password"]:focus
+{
+    border-bottom: 2px solid #f00;
+}
+.login-box input[type="button"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    font-size: 16px;
+    background: tomato;
+}
+.text-box{
+    position: relative;
+}
+.text-box span{
+    position: absolute;
+    top: 10px;
+    color: #262626;
+}

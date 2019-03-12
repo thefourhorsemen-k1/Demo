@@ -1,0 +1,27 @@
+<div class="login-box">
+  <h1>Login</h1>
+  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <div class="text-box">
+      <span><i class="fas fa-user" aria-hidden="true"></i></span>
+      <input type="text" placeholder="Username" [(ngModel)]="form.username" #username="ngModel" required>
+      <div *ngIf="f.submitted && username.invalid">
+          <div *ngIf="username.errors.required">Username is required</div>
+        </div>
+    </div>
+    <div class="text-box">
+      <span><i class="fas fa-lock" aria-hidden="true"></i></span>
+      <input type="password" placeholder="Password" [(ngModel)]="form.password" #password="ngModel" required minlength="6">
+      <div *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+    </div>
+    <input class="btn" type="button" name="Login" value="Login">
+    <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+        Login failed: {{errorMessage}}
+      </div>
+  </form>
+  <hr />
+    <p>Don't have an account?</p>
+    <a href="sign-up" class="btn btn-success">Sign Up</a>
+</div>
