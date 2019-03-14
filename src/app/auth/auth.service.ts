@@ -16,8 +16,8 @@ const httpOptions = {
 })
 export class AuthService {
 
-  private loginUrl = 'https://brainmusic-be.herokuapp.com/signin';
-  private signupUrl = 'https://brainmusic-be.herokuapp.com/signup';
+  private loginUrl = 'http://localhost:8080/signin';
+  private signupUrl = 'http://localhost:8080/signup';
 
   constructor(private http: HttpClient,
               public jwtHelper: JwtHelperService) {

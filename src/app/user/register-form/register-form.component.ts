@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../shared/user.model';
-import {NotificationService} from '../../shared/notification.service';
-import { AuthService } from '../../auth/auth.service';
-import { Router } from '@angular/router';
+import {AuthService} from '../../auth/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register-form',
@@ -15,12 +14,13 @@ export class RegisterFormComponent implements OnInit {
   isSignedUp = false;
   isSignUpFailed = false;
   errorMessage = '';
- 
+
   constructor(private authService: AuthService,
-    public router: Router) { }
- 
+              public router: Router) {
+  }
+
   ngOnInit() { }
- 
+
   onSubmit() {
     console.log(this.form);
 
@@ -35,7 +35,7 @@ export class RegisterFormComponent implements OnInit {
         console.log(data);
         this.isSignedUp = true;
         this.isSignUpFailed = false;
-        this.router.navigate(['/signin'])
+        this.router.navigate(['/']);
       },
       error => {
         console.log(error);
