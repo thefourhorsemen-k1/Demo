@@ -8,8 +8,8 @@ import {Feedback} from './feedback.model';
   providedIn: 'root'
 })
 export class FeedbackService {
-  private readonly API_URL_USER = 'http://localhost:8080/feedback/';
-  private readonly API_URL_ADMIN = 'http://localhost:8080/admin/feedbacks/';
+  private readonly API_URL_USER = 'https://brainmusic-be.herokuapp.com/feedback/';
+  private readonly API_URL_ADMIN = 'https://brainmusic-be.herokuapp.com/admin/feedbacks/';
   formData: Feedback;
   list: Feedback[];
   constructor(private http: HttpClient) {

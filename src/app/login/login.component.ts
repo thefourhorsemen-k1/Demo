@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { TokenStorageService } from '../shared/token-storage.service';
-import { AuthService } from '../auth/auth.service';
-import { AuthLoginInfo } from '../shared/login-info';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder} from '@angular/forms';
+import {TokenStorageService} from '../shared/token-storage.service';
+import {AuthService} from '../auth/auth.service';
+import {AuthLoginInfo} from '../shared/login-info';
 
 @Component({
   selector: 'app-login',
@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
     this.authService.attemptAuth(this.loginInfo).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);
+        window.sessionStorage.setItem('TOKEN_KEY', data.accessToken);
         this.tokenStorage.saveUsername(data.username);
         this.tokenStorage.saveAuthorities(data.authorities);
 

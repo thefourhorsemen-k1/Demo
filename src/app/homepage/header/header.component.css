@@ -15,3 +15,6 @@
 .navbar-expand-lg .navbar-toggler {
   border-color: transparent;
 }
+.nav-link{
+  cursor: pointer;
+}

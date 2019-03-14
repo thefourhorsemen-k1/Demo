@@ -23,10 +23,11 @@ import {HeaderComponent} from './homepage/header/header.component';
 import {MainComponent} from './homepage/main/main.component';
 import {MusicComponent} from './music/music.component';
 import {ManageMusicComponent} from './admin/manage-music/manage-music.component';
-import { LoginComponent } from './login/login.component';
-import { httpInterceptorProviders } from './auth/auth-interceptor';
-import { AuthService } from './auth/auth.service';
-// import {NavbarHeaderComponent} from './navbar-header/navbar-header.component';
+import {LoginComponent} from './login/login.component';
+import {httpInterceptorProviders} from './auth/auth-interceptor';
+import {AuthService} from './auth/auth.service';
+import {JwtModule} from '@auth0/angular-jwt';
+
 
 @NgModule({
   declarations: [
@@ -58,7 +59,15 @@ import { AuthService } from './auth/auth.service';
     FormsModule,
     MatCardModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: function tokenGetter() {
+          return sessionStorage.getItem('TOKEN_KEY');
+        },
+        whitelistedDomains: ['localhost:4200']
+      }
+    })
   ],
   entryComponents: [
     FeedbackComponent,
@@ -68,7 +77,8 @@ import { AuthService } from './auth/auth.service';
     AuthService,
     EmailService,
     FeedbackService,
-    httpInterceptorProviders],
+    httpInterceptorProviders,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

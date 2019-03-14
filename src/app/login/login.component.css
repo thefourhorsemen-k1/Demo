@@ -20,8 +20,8 @@
     width: 100%;
     margin-bottom: 20px;
 }
-.login-box input[type="text"],
-.login-box input[type="password"]
+.login-box input[type="text"].form-control,
+.login-box input[type="password"].form-control
 {
     border: none;
     border-bottom: 2px solid #262626;
@@ -33,13 +33,14 @@
     box-sizing: border-box;
     outline: none;
 }
-.login-box input[type="text"]:focus,
-.login-box input[type="password"]:focus
+.login-box input[type="text"].form-control:focus,
+.login-box input[type="password"].form-control:focus
 {
     border-bottom: 2px solid #f00;
+    outline: none;
+    box-shadow: none;
 }
-.login-box input[type="button"]
-{
+.login-box input[type="button"].btn{
     border: none;
     outline: none;
     height: 40px;
