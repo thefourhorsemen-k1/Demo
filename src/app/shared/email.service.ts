@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 })
 export class EmailService {
 
-  private readonly API_URL_EMAIL = 'http://localhost:8080/admin/email';
+  private readonly API_URL_EMAIL = 'https://brainmusic-be.herokuapp.com/admin/email';
 
   constructor(private http: HttpClient) {
   }

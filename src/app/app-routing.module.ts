@@ -7,6 +7,7 @@ import {MusicComponent} from './music/music.component';
 import {AdminComponent} from './admin/admin.component';
 import {ManageMusicComponent} from './admin/manage-music/manage-music.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuardGuard as AuthGuard } from './auth/auth-guard.guard';
 
 const routes: Routes = [
   {
@@ -19,16 +20,18 @@ const routes: Routes = [
     path: 'feedback', component: ListFeedbackComponent
   },
   {
-    path: 'sign-up', component: RegisterFormComponent
+    path: 'signup', component: RegisterFormComponent
   },
   {
-    path: 'music', component: MusicComponent
+    path: 'music', component: MusicComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'admin', component: AdminComponent
+    path: 'admin', component: AdminComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'sign-in', component: LoginComponent
+    path: 'signin', component: LoginComponent
   }
 ];
 

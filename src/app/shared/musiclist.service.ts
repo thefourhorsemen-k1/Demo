@@ -10,7 +10,7 @@ export class MusiclistService {
 
   formData: Music;
   list: Music[];
-  private API_URL_SONG = 'http://localhost:8080/admin/songs/';
+  private API_URL_SONG = 'https://brainmusic-be.herokuapp.com/admin/songs/';
 
   constructor(private http: HttpClient) {
   }

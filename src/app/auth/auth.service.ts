@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 import { JwtResponse } from '../shared/jwt-response';
 import { AuthLoginInfo } from '../shared/login-info';
@@ -15,11 +16,19 @@ const httpOptions = {
 })
 export class AuthService {
 
-  private loginUrl = 'http://localhost:8080/signin';
-  private signupUrl = 'http://localhost:8080/signup';
+  private loginUrl = 'https://brainmusic-be.herokuapp.com/signin';
+  private signupUrl = 'https://brainmusic-be.herokuapp.com/signup';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+    public jwtHelper: JwtHelperService) {
   }
+
+  public isAuthenticated(): boolean {
+    const token = sessionStorage.getItem('TOKEN_KEY');
+    return !this.jwtHelper.isTokenExpired(token)
+  }
+
+  
 
   attemptAuth(credentials: AuthLoginInfo): Observable<JwtResponse> {
     return this.http.post<JwtResponse>(this.loginUrl, credentials, httpOptions);
