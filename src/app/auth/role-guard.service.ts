@@ -21,10 +21,7 @@ export class RoleGuardService implements CanActivate {
 
     // phân tách token được gửi từ server lên để lấy thông tin ở payload
     const tokenPayload = decode(token);
-    if (
-      !this.auth.isAuthenticated() ||
-      tokenPayload.roles[0] !== expectedRole
-    ) {
+    if (!this.auth.isAuthenticated() && tokenPayload.roles[0] !== expectedRole) {
       this.router.navigate(['/']);
       return false;
     }
