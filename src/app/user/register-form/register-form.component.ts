@@ -4,6 +4,7 @@ import {ConfirmPasswordValidator} from './confirm-password.validator';
 import {User} from '../../shared/user.model';
 import {NotificationService} from '../../shared/notification.service';
 import { AuthService } from '../../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-form',
@@ -57,7 +58,8 @@ export class RegisterFormComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
  
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+    public router: Router) { }
  
   ngOnInit() { }
  
@@ -75,6 +77,7 @@ export class RegisterFormComponent implements OnInit {
         console.log(data);
         this.isSignedUp = true;
         this.isSignUpFailed = false;
+        this.router.navigate(['/signin'])
       },
       error => {
         console.log(error);

@@ -40,7 +40,7 @@
     outline: none;
     box-shadow: none;
 }
-.login-box input[type="button"].btn{
+.login-box button[type="submit"].btn{
     border: none;
     outline: none;
     height: 40px;

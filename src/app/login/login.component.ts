@@ -3,6 +3,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { TokenStorageService } from '../shared/token-storage.service';
 import { AuthService } from '../auth/auth.service';
 import { AuthLoginInfo } from '../shared/login-info';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private authService: AuthService,
-     private tokenStorage: TokenStorageService) { }
+     private tokenStorage: TokenStorageService,
+     private router: Router) { }
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
@@ -57,6 +59,7 @@ export class LoginComponent implements OnInit {
 
   reloadPage() {
     window.location.reload();
+    this.router.navigate(['/']);
   }
 
 }
