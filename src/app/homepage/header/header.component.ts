@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { TokenStorageService } from '../../shared/token-storage.service';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {TokenStorageService} from '../../shared/token-storage.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -12,8 +12,10 @@ export class HeaderComponent implements OnInit {
 
   private roles: string[];
   private authority: string;
+
   constructor(private tokenStorage: TokenStorageService,
-    private router: Router) { }
+              public router: Router) {
+  }
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
@@ -22,7 +24,7 @@ export class HeaderComponent implements OnInit {
         if (role === 'ROLE_ADMIN') {
           this.authority = 'admin';
           return false;
-        } 
+        }
         this.authority = 'user';
         return true;
       });
@@ -33,7 +35,7 @@ export class HeaderComponent implements OnInit {
     this.tokenStorage.signOut();
     window.sessionStorage.clear();
     window.location.reload();
-    this.router.navigate(['/'])
+    this.router.navigate(['/']);
   }
 }
 
